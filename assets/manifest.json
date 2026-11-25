@@ -1,0 +1,234 @@
+{
+  "version": 3,
+  "updatedForPhase": 5,
+  "auditedInPhase": 5,
+  "note": "Every external asset Fawn Rush needs, and exactly what is blocking each one. Phase 5 UI foundations are native Roblox GUI built from source; they do not imply uploaded art. `robloxId` stays empty until an asset is uploaded; no IDs are invented. `status`: procedural (built in Luau from primitives, temporary), todo (not started), exported (authored, not uploaded), upload pending, uploaded, verified. `owner` is the discipline responsible, not a person.",
+  "pipeline": {
+    "sourceRoot": "assets/blender",
+    "exportRoot": "assets/export",
+    "textureRoot": "assets/textures",
+    "reference": "assets/export/_reference/REF_Box_4stud.obj",
+    "note": "Phase 4 ships the geometry definitions and both exporters, not binary assets. See assets/blender/README.md for the two commands that produce .blend/.fbx (needs Blender) and .obj/.mtl (needs only Python 3).",
+    "binaryAssetsPresent": false,
+    "binaryAssetsBlockedBy": "No Blender or Python runtime is available in the development environment. The scale-reference cube is committed as a real .obj because it is a required validation asset."
+  },
+  "characters": {
+    "owner": "3D character art",
+    "count": 13,
+    "items": [
+      { "name": "CH_Deer", "species": "deer", "rarity": "Common", "builder": "AnimalBuilder.buildRig('deer')", "robloxId": "", "status": "procedural", "note": "25 parts, 12 joints, explicit pivots. The joint contract every Blender character must satisfy." },
+      { "name": "CH_Rabbit", "species": "rabbit", "rarity": "Common", "robloxId": "", "status": "procedural", "note": "hind-leg scale 1.60, long ears" },
+      { "name": "CH_Cat", "species": "cat", "rarity": "Common", "robloxId": "", "status": "procedural" },
+      { "name": "CH_Dog", "species": "dog", "rarity": "Common", "robloxId": "", "status": "procedural" },
+      { "name": "CH_Duck", "species": "duck", "rarity": "Uncommon", "robloxId": "", "status": "procedural", "note": "bill extra" },
+      { "name": "CH_Raccoon", "species": "raccoon", "rarity": "Uncommon", "robloxId": "", "status": "procedural", "note": "mask extra" },
+      { "name": "CH_Fox", "species": "fox", "rarity": "Rare", "robloxId": "", "status": "procedural" },
+      { "name": "CH_Hedgehog", "species": "hedgehog", "rarity": "Rare", "robloxId": "", "status": "procedural", "note": "spikes extra" },
+      { "name": "CH_RedPanda", "species": "redpanda", "rarity": "Epic", "robloxId": "", "status": "procedural", "note": "tail rings extra" },
+      { "name": "CH_Otter", "species": "otter", "rarity": "Epic", "robloxId": "", "status": "procedural", "note": "whiskers extra" },
+      { "name": "CH_WolfPup", "species": "wolfpup", "rarity": "Legendary", "robloxId": "", "status": "procedural" },
+      { "name": "CH_BearCub", "species": "bearcub", "rarity": "Mythic", "robloxId": "", "status": "procedural" },
+      { "name": "CH_MoonlitFawn", "species": "moonlit", "rarity": "Secret", "robloxId": "", "status": "procedural", "note": "glow extra with a PointLight; presence rigs build without the light" }
+    ],
+    "blocking": "Phase 4 pipeline is live but characters were not in Phase 4 scope. Each Blender mesh must satisfy the joint contract in AnimalBuilder: Torso, Head, Tail, LegFL/FR/BL/BR, EarL/R, plus the follow map."
+  },
+  "animations": {
+    "owner": "Animation and VFX",
+    "status": "todo",
+    "stateCount": 13,
+    "clipCount": 169,
+    "states": ["idle", "alert", "walk", "run", "jump", "fall", "land", "turn", "fright", "stumble", "happy", "death", "victory"],
+    "note": "13 states x 13 species = 169 authored clips, once Phase 4 meshes replace the procedural rigs. Until then the states are procedural pose functions in AnimationLib and need no asset."
+  },
+  "vehicles": {
+    "owner": "3D environment and prop art",
+    "status": "procedural",
+    "items": [
+      { "name": "VH_Compact", "robloxId": "", "status": "procedural" },
+      { "name": "VH_Sports", "robloxId": "", "status": "procedural" },
+      { "name": "VH_Pickup", "robloxId": "", "status": "procedural" },
+      { "name": "VH_Van", "robloxId": "", "status": "procedural" },
+      { "name": "VH_Bus", "robloxId": "", "status": "procedural" },
+      { "name": "VH_Motorcycle", "robloxId": "", "status": "procedural" },
+      { "name": "VH_Train", "robloxId": "", "status": "procedural", "note": "10 tiles long" }
+    ]
+  },
+  "worlds": {
+    "greenwood": {
+      "name": "Greenwood Crossing",
+      "tagline": "Sunlight through the leaves. Watch the road.",
+      "style": "forest",
+      "props": ["tree", "bush", "rock", "mushroom"],
+      "assets": ["ENV_Tree_Broadleaf_A", "ENV_Tree_Broadleaf_B", "ENV_Bush_A", "ENV_Bush_B", "ENV_Rock_A", "ENV_Mushroom_A", "ENV_Mushroom_B", "ENV_Pond_01", "ENV_Bridge_Wood_01"],
+      "status": "procedural"
+    },
+    "city": {
+      "name": "City Chaos",
+      "tagline": "Downtown does not slow down for anyone.",
+      "style": "urban",
+      "props": ["building", "streetLight", "billboard", "bush"],
+      "assets": ["ENV_Building_A", "ENV_Building_B", "ENV_Building_C", "ENV_StreetLight_01", "ENV_Billboard_01", "ENV_TrafficLight_01", "ENV_Hydrant_01", "ENV_Bench_01", "ENV_Sidewalk_01"],
+      "status": "procedural"
+    },
+    "desert": {
+      "name": "Desert Dash",
+      "tagline": "Nothing out here but heat and horsepower.",
+      "style": "desert",
+      "props": ["cactus", "mesa", "rock", "bush"],
+      "assets": ["ENV_Cactus_A", "ENV_Cactus_B", "ENV_Mesa_A", "ENV_Mesa_B", "ENV_Rock_B", "ENV_Tumbleweed_01", "ENV_Bones_01", "ENV_DryRiverbed_01"],
+      "status": "procedural"
+    },
+    "snow": {
+      "name": "Snowy Summit",
+      "tagline": "Quiet, cold, and still coming through.",
+      "style": "snow",
+      "props": ["pine", "snowBank", "rock", "iceSheet"],
+      "assets": ["ENV_Tree_Pine_A", "ENV_Tree_Pine_B", "ENV_SnowBank_A", "ENV_SnowBank_B", "ENV_IceSheet_01", "ENV_Icicle_01", "ENV_Bridge_Ice_01", "ENV_Rock_C"],
+      "status": "procedural"
+    },
+    "neon": {
+      "name": "Neon Night",
+      "tagline": "The whole boulevard is a light show. It does not stop.",
+      "style": "neon",
+      "props": ["neonTower", "neonSign", "holoPylon", "streetLight"],
+      "assets": ["ENV_NeonTower_A", "ENV_NeonTower_B", "ENV_NeonSign_A", "ENV_NeonSign_B", "ENV_HoloPylon_01", "ENV_Cable_01", "ENV_StreetLight_01"],
+      "status": "procedural"
+    }
+  },
+  "environment": {
+    "owner": "3D environment and prop art",
+    "byKind": {
+      "tree": "ENV_Tree_Broadleaf_A",
+      "pine": "ENV_Tree_Pine_A",
+      "bush": "ENV_Bush_A",
+      "rock": "ENV_Rock_A",
+      "mushroom": "ENV_Mushroom_A",
+      "cactus": "ENV_Cactus_A",
+      "mesa": "ENV_Mesa_A",
+      "building": "ENV_Building_A",
+      "streetLight": "ENV_StreetLight_01",
+      "billboard": "ENV_Billboard_01",
+      "snowBank": "ENV_SnowBank_A",
+      "iceSheet": "ENV_IceSheet_01",
+      "neonTower": "ENV_NeonTower_A",
+      "neonSign": "ENV_NeonSign_A",
+      "holoPylon": "ENV_HoloPylon_01",
+      "pond": "ENV_Pond_01",
+      "bridge": "ENV_Bridge_Wood_01"
+    },
+    "families": [
+      { "family": "Trees", "assets": ["ENV_Tree_Broadleaf_A", "ENV_Tree_Broadleaf_B", "ENV_Tree_Pine_A", "ENV_Tree_Pine_B", "ENV_Tree_Dead_A"], "status": "procedural", "blocking": "Blender: assets/blender/build_environment.py" },
+      { "family": "Ground cover", "assets": ["ENV_Bush_A", "ENV_Bush_B", "ENV_Grass_Clump_A", "ENV_Flower_A", "ENV_Mushroom_A"], "status": "procedural", "blocking": "Blender" },
+      { "family": "Rocks", "assets": ["ENV_Rock_A", "ENV_Rock_B", "ENV_Rock_C", "ENV_Cliff_01"], "status": "procedural", "blocking": "Blender" },
+      { "family": "Water", "assets": ["ENV_Pond_01", "ENV_Stream_01"], "status": "procedural", "blocking": "Blender" },
+      { "family": "Crossing structures", "assets": ["ENV_Bridge_Wood_01", "ENV_Bridge_Ice_01"], "status": "procedural", "blocking": "Blender; scenery only, never routed by the simulation" },
+      { "family": "Road furniture", "assets": ["ENV_Barrier_01", "ENV_Cone_01", "ENV_RailSleeper_01"], "status": "procedural", "blocking": "Blender" },
+      { "family": "Wildlife", "assets": ["WL_Squirrel", "WL_Pigeon", "WL_Lizard", "WL_SnowHare", "WL_Drone"], "status": "procedural", "blocking": "Blender" },
+      { "family": "City props", "assets": ["ENV_Building_A", "ENV_Building_B", "ENV_Building_C", "ENV_TrafficLight_01", "ENV_StreetLight_01", "ENV_Billboard_01", "ENV_Sidewalk_01"], "status": "procedural", "blocking": "Blender" },
+      { "family": "Desert props", "assets": ["ENV_Cactus_A", "ENV_Cactus_B", "ENV_Mesa_A", "ENV_Mesa_B", "ENV_Tumbleweed_01"], "status": "procedural", "blocking": "Blender" },
+      { "family": "Snow props", "assets": ["ENV_SnowBank_A", "ENV_SnowBank_B", "ENV_IceSheet_01", "ENV_Icicle_01"], "status": "procedural", "blocking": "Blender" },
+      { "family": "Neon props", "assets": ["ENV_NeonTower_A", "ENV_NeonTower_B", "ENV_NeonSign_A", "ENV_NeonSign_B", "ENV_HoloPylon_01", "ENV_Cable_01"], "status": "procedural", "blocking": "Blender" }
+    ]
+  },
+  "collectibles": {
+    "owner": "3D environment and prop art",
+    "items": [
+      { "name": "CL_Acorn", "world": "greenwood", "robloxId": "", "status": "procedural", "note": "value 1 median / 3 road" },
+      { "name": "CL_Coin", "world": "city", "robloxId": "", "status": "procedural", "note": "value identical to every other world" },
+      { "name": "CL_CactusNut", "world": "desert", "robloxId": "", "status": "procedural" },
+      { "name": "CL_IceGem", "world": "snow", "robloxId": "", "status": "procedural" },
+      { "name": "CL_Shard", "world": "neon", "robloxId": "", "status": "procedural" },
+      { "name": "CL_GoldenAcorn", "world": "all", "robloxId": "", "status": "todo", "blocking": "Phase 6" }
+    ]
+  },
+  "vfx": {
+    "owner": "Animation and VFX",
+    "status": "partial",
+    "procedural": ["pickup sparkle", "death flash", "near-miss flash", "capped camera shake", "leaves", "dust", "sand", "snow", "motes", "fireflies"],
+    "todo": [
+      { "name": "VFX_Unlock_Radial", "blocking": "Phase 7" },
+      { "name": "VFX_LevelUp_Glow", "blocking": "Phase 6" },
+      { "name": "VFX_SpeedLines", "blocking": "Phase 9" },
+      { "name": "VFX_Trail_Premium", "blocking": "Phase 8" }
+    ],
+    "note": "Every ambient effect is one ParticleEmitter with no texture, rate-capped by GraphicsTier. No particle texture needs uploading yet."
+  },
+  "textures": {
+    "owner": "3D character art",
+    "status": "todo",
+    "items": [
+      { "name": "TX_Char_Atlas", "usedBy": "all 13 characters", "size": "1024x1024", "robloxId": "", "status": "todo", "blocking": "Blender / painting, Phase 7. Not needed while characters are flat-coloured primitives." },
+      { "name": "TX_Vehicle_Palette", "usedBy": "all 7 vehicles", "size": "512x512", "robloxId": "", "status": "todo", "blocking": "Blender / painting, Phase 7" },
+      { "name": "TX_Neon_Emissive", "usedBy": "Neon Night props", "size": "512x512", "robloxId": "", "status": "todo", "blocking": "Blender / painting, Phase 7" }
+    ],
+    "note": "docs/06 §5.2 specifies one flat palette material per asset and no normal maps in v1. WorldKit meets that with Roblox materials and colours, so no texture is referenced by any running code yet."
+  },
+  "cosmetics": {
+    "owner": "3D character art",
+    "status": "todo",
+    "count": 58,
+    "blocking": "Phase 7. Attachment slots already exist on every rig: Head, Neck, Spine, FootFL/FR/BL/BR."
+  },
+  "ui": {
+    "owner": "UI/UX",
+    "status": "todo",
+    "count": 38,
+    "blocking": "Current Phase 5 screens use native Roblox GUI and built-in Gotham fonts; no UI image or ID is referenced. The 38 planned UI art assets remain todo and need source exports before upload."
+  },
+  "audio": {
+    "owner": "Sound design and composition",
+    "status": "todo",
+    "music": {
+      "count": 6,
+      "cues": [
+        { "name": "MUS_Lobby", "robloxId": "" },
+        { "name": "MUS_Greenwood", "robloxId": "" },
+        { "name": "MUS_City", "robloxId": "" },
+        { "name": "MUS_Desert", "robloxId": "" },
+        { "name": "MUS_Snow", "robloxId": "" },
+        { "name": "MUS_Neon", "robloxId": "" }
+      ]
+    },
+    "sfx": {
+      "count": 28,
+      "cues": [
+        { "name": "SFX_Step", "robloxId": "" },
+        { "name": "SFX_Jump", "robloxId": "" },
+        { "name": "SFX_Land", "robloxId": "" },
+        { "name": "SFX_Pickup", "robloxId": "" },
+        { "name": "SFX_VehiclePass", "robloxId": "" },
+        { "name": "SFX_NearMiss", "robloxId": "" },
+        { "name": "SFX_Collision", "robloxId": "" },
+        { "name": "SFX_TrainHorn", "robloxId": "" },
+        { "name": "SFX_Wildlife", "robloxId": "" },
+        { "name": "SFX_LevelUp", "robloxId": "" },
+        { "name": "SFX_Unlock_Common", "robloxId": "" },
+        { "name": "SFX_Unlock_Uncommon", "robloxId": "" },
+        { "name": "SFX_Unlock_Rare", "robloxId": "" },
+        { "name": "SFX_Unlock_Epic", "robloxId": "" },
+        { "name": "SFX_Unlock_Legendary", "robloxId": "" },
+        { "name": "SFX_Unlock_Mythic", "robloxId": "" },
+        { "name": "SFX_Unlock_Secret", "robloxId": "" },
+        { "name": "SFX_Button_Click", "robloxId": "" },
+        { "name": "SFX_Button_Hover", "robloxId": "" },
+        { "name": "SFX_Menu_Open", "robloxId": "" },
+        { "name": "SFX_Menu_Close", "robloxId": "" },
+        { "name": "SFX_Purchase_Success", "robloxId": "" },
+        { "name": "SFX_Purchase_Fail", "robloxId": "" },
+        { "name": "SFX_Achievement", "robloxId": "" },
+        { "name": "SFX_Mission_Complete", "robloxId": "" },
+        { "name": "SFX_Combo_Up", "robloxId": "" },
+        { "name": "SFX_Death", "robloxId": "" },
+        { "name": "SFX_Countdown", "robloxId": "" }
+      ]
+    },
+    "blocking": "Phase 9. AudioConfig ids are 0; the audio system no-ops. No id is invented."
+  },
+  "platformConfiguration": {
+    "gamepasses": { "count": 5, "ids": [0, 0, 0, 0, 0], "status": "todo", "blocking": "Creator Dashboard, Phase 8" },
+    "developerProducts": { "count": 5, "ids": [0, 0, 0, 0, 0], "status": "todo", "blocking": "Creator Dashboard, Phase 8" },
+    "badges": { "count": 8, "ids": [], "status": "todo", "blocking": "Creator Dashboard, Phase 6/10" },
+    "dataStoreAccess": { "status": "todo", "blocking": "Enable on the published experience, Phase 6" },
+    "publishedPlace": { "status": "todo", "blocking": "Phase 8/10 live verification" }
+  }
+}

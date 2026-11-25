@@ -1,0 +1,9 @@
+# Reference material for the scale-gate cube.
+# A neutral slate so the cube is visible against any Studio baseplate.
+
+newmtl REF_Slate
+Kd 0.5882 0.6039 0.6196
+Ka 0 0 0
+Ks 0 0 0
+d 1.0
+illum 1

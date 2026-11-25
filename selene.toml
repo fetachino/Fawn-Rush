@@ -1,0 +1,5 @@
+std = "roblox"
+
+[lints]
+shadowing = "warn"
+unscoped_variables = "warn"
